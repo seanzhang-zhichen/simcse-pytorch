@@ -32,5 +32,5 @@ class TestDataset(Dataset):
         return len(self.data)
     
     def __getitem__(self, index):
-        return self.text2id(self.data[index][0]), self.text2id(self.data[index][1])
+        return self.text2id(self.data[index][0]), self.text2id(self.data[index][1]), int(self.data[index][2])
         
