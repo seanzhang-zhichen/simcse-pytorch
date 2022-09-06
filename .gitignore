@@ -2,3 +2,5 @@
 /data/*
 __pycache__
 .DS_Store
+data.zip
+model.zip
