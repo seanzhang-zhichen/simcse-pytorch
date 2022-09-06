@@ -44,7 +44,7 @@ class TrainUnsupSimcse:
 
             if batch_idx % 10 == 0:     
                 logger.info(f'loss: {loss.item():.4f}')
-                corrcoef = eval(dev_dataloader)
+                corrcoef = self.eval(dev_dataloader)
                 self.model.train()
                 if self.best_loss < corrcoef:
                     self.best_loss = corrcoef
