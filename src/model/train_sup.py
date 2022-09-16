@@ -22,7 +22,7 @@ class TrainSupSimcse:
     def simcse_sup_loss(self, y_pred):
         y_true = torch.arange(y_pred.shape[0], device=self.device)
         use_row = torch.where((y_true + 1) % 3 != 0)[0]
-        y_true = (y_true - y_true % 3 * 2) + 1
+        y_true = (use_row - use_row % 3 * 2) + 1
         sim = F.cosine_similarity(y_pred.unsqueeze(1), y_pred.unsqueeze(0), dim=-1)
         sim = sim - torch.eye(y_pred.shape[0], device=self.device) * 1e12
         sim = torch.index_select(sim, 0, use_row)
