@@ -1,4 +1,5 @@
 import random
+from traceback import print_tb
 from data.data_process import load_data
 from torch.utils.data import DataLoader, Dataset
 from data.dataset import TrainDataset, TestDataset
@@ -35,7 +36,7 @@ if __name__ == '__main__':
         dev_data = load_data('sts', sts_dev, model_type)
         test_data = load_data('sts', sts_test, model_type)
     elif model_type == "sup":
-        train_data = load_data('snli', sts_train, model_type)
+        train_data = load_data('snli', snli_train, model_type)
         random.shuffle(train_data)
         dev_data = load_data('sts', sts_dev, model_type)
         test_data = load_data('sts', sts_test, model_type)
