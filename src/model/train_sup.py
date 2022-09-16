@@ -39,7 +39,7 @@ class TrainSupSimcse:
             token_type_ids = source.get('token_type_ids').view(real_batch_num * 3, -1).to(self.device)
 
             out = self.model(input_ids, attention_mask, token_type_ids)        
-            loss = self.simcse_unsup_loss(out)
+            loss = self.simcse_sup_loss(out)
             self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
