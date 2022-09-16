@@ -3,7 +3,7 @@ import numpy as np
 from tqdm import tqdm
 from scipy.stats import spearmanr
 import torch.nn.functional as F
-from .simces_unsup import SimcseUnsupModel
+from .simcse_unsup import SimcseUnsupModel
 
 from loguru import logger
 

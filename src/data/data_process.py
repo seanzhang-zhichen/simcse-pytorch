@@ -2,12 +2,15 @@
 import jsonlines
 
 
-def load_data(name, path):
+def load_data(name, path, model_type="unsup"):
     """根据名字加载不同的数据集"""
     def load_snli_data(path):
         with jsonlines.open(path, 'r') as f:
-            return [line.get('origin') for line in f]
-
+            if model_type == "unsup":
+                return [line.get('origin') for line in f]
+            elif model_type == "sup":
+                return [(line['origin'], line['entailment'], line['contradiction']) for line in f]
+                
     def load_lqcmc_data(path):
         with open(path, 'r', encoding='utf8') as f:
             return [line.strip().split('\t')[0] for line in f]    
