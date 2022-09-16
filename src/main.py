@@ -14,7 +14,7 @@ if __name__ == '__main__':
     batch_size = 64
 
     text = "今天天气真不错"
-    model_type = "unsup"
+    model_type = "sup"
 
     bert_path = "../model/bert-base-chinese"
     model_save_path = f"./model/simcse/simcse_{model_type}.pt"
