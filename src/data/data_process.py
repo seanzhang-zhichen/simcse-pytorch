@@ -29,7 +29,7 @@ def load_blog_data():
     
     from sklearn.model_selection import train_test_split
 
-    path = "./test/auto_faq/data/blog/blog_title_for_simcse.txt"
+    path = "/home/csdnai/File/repo/ask-classifier/src/test/auto_faq/data/blog/blog_title_for_simcse.txt"
     file_handle = open(path, 'r')
 
     data = []
