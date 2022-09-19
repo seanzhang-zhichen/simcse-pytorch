@@ -37,12 +37,12 @@ if __name__ == '__main__':
     
 
     if model_type == "unsup":
-        # train_data_snli = load_data('snli', snli_train, model_type)
-        # train_data_sts = load_data('sts', sts_train, model_type)
-        # train_data = train_data_snli + [_[0] for _ in train_data_sts]   # 两个数据集组合
-        # dev_data = load_data('sts', sts_dev, model_type)
-        # test_data = load_data('sts', sts_test, model_type)
-        train_data, dev_data, test_data = load_blog_data()
+        train_data_snli = load_data('snli', snli_train, model_type)
+        train_data_sts = load_data('sts', sts_train, model_type)
+        train_data = train_data_snli + [_[0] for _ in train_data_sts]   # 两个数据集组合
+        dev_data = load_data('sts', sts_dev, model_type)
+        test_data = load_data('sts', sts_test, model_type)
+        train_data = load_blog_data()
     elif model_type == "sup":
         train_data = load_data('snli', snli_train, model_type)
         random.shuffle(train_data)

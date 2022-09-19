@@ -38,8 +38,8 @@ def load_blog_data():
     
     data = data[:200000]
     
-    train_temp_set, test_set = train_test_split(data, test_size=0.1, random_state=42)
+    # train_temp_set, test_set = train_test_split(data, test_size=0.1, random_state=42)
 
-    train_set, dev_set = train_test_split(train_temp_set, test_size=0.2, random_state=42)
-    return train_set, dev_set, test_set
+    # train_set, dev_set = train_test_split(train_temp_set, test_size=0.2, random_state=42)
+    return data
 
