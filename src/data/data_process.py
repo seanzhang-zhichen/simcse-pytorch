@@ -36,11 +36,10 @@ def load_blog_data():
     for line in file_handle:
         data.append(line.strip())
     
-
+    data = data[:200000]
     
     train_temp_set, test_set = train_test_split(data, test_size=0.1, random_state=42)
 
     train_set, dev_set = train_test_split(train_temp_set, test_size=0.2, random_state=42)
-    print(test_set)
     return train_set, dev_set, test_set
 
