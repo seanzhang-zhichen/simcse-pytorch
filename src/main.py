@@ -1,4 +1,5 @@
 import random
+import argparse
 from traceback import print_tb
 from data.data_process import load_data
 from torch.utils.data import DataLoader, Dataset
@@ -13,10 +14,16 @@ from loguru import logger
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='模型参数')
+    parser.add_argument('--model_type', type=str, default='unsup', help='模型类型')
+    args = parser.parse_args()
+
     batch_size = 64
 
     text = "今天天气真不错"
-    model_type = "sup"
+    model_type = args.model_type
+
+    logger.info(f"训练 {model_type} 模型...")
 
     bert_path = "../model/bert-base-chinese"
     model_save_path = f"./model/simcse/simcse_{model_type}.pt"
