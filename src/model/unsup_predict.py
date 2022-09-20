@@ -30,7 +30,7 @@ def predict(tokenizer, model, text_a, text_b):
 
 if __name__ == '__main__':
     text_a = "用len函数出现报错：索引超出矩阵范围"
-    text_b = "索引超出矩阵范围"
+    text_b = "len函数 索引超出矩阵范围"
 
     save_path = '../../model/simcse/simcse_unsup.pt'
     model_path = '../../model/bert-base-chinese'
