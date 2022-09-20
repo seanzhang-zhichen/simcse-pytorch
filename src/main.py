@@ -59,7 +59,7 @@ if __name__ == '__main__':
         train_model = TrainSupSimcse(bert_path, model_save_path)
 
 
-    for epoch in range(10):
+    for epoch in range(1):
         logger.info(f'epoch: {epoch}')
         train_model.train(train_dataloader, dev_dataloader)
     logger.info(f'train is finished, best model is saved at {model_save_path}')
