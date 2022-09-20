@@ -20,13 +20,12 @@ if __name__ == '__main__':
 
     batch_size = 64
 
-    text = "今天天气真不错"
     model_type = args.model_type
 
     logger.info(f"训练 {model_type} 模型...")
 
     bert_path = "../model/bert-base-chinese"
-    model_save_path = f"./model/simcse/simcse_{model_type}.pt"
+    model_save_path = f"../model/simcse/simcse_{model_type}.pt"
     tokenizer = BertTokenizer.from_pretrained(bert_path)
 
     snli_train = '../data/cnsd-snli/train.txt'
