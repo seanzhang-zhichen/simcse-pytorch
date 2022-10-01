@@ -48,7 +48,7 @@ class TrainSupSimcse:
                 logger.info(f'loss: {loss.item():.4f}')
                 corrcoef = self.eval(dev_dataloader)
                 self.model.train()
-                if self.best_loss < corrcoef:
+                if self.best_loss > corrcoef:
                     self.best_loss = corrcoef
                     torch.save(self.model.state_dict(), self.model_save_path)
                     logger.info(f"higher corrcoef: {self.best_loss:.4f} in batch: {batch_idx}, save model")
