@@ -40,7 +40,7 @@ if __name__ == '__main__':
         score_1 = get_sim(text_a, text_b, model_type)
         score_2 = get_sim(text_a, text_c, model_type)
         logger.info(f"text_a: {text_a}, text_b: {text_b}, simility: {score_1}")
-        logger.info(f"text_a: {text_a}, text_b: {text_c}, simility: {score_2}")
+        logger.info(f"text_a: {text_a}, text_c: {text_c}, simility: {score_2}")
         os._exit(0)
 
     
