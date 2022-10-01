@@ -37,8 +37,8 @@ if __name__ == '__main__':
         text_b = "一个人在烧草帽"
         text_c = "一个人在一堆椰子旁边"
 
-        score_1 = get_sim(text_a, text_b)
-        score_2 = get_sim(text_a, text_c)
+        score_1 = get_sim(text_a, text_b, model_type)
+        score_2 = get_sim(text_a, text_c, model_type)
         logger.info(f"text_a: {text_a}, text_b: {text_b}, simility: {score_1}")
         logger.info(f"text_a: {text_a}, text_b: {text_c}, simility: {score_2}")
         os._exit()
