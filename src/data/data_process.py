@@ -23,23 +23,3 @@ def load_data(name, path, model_type="unsup"):
     if name == 'snli':
         return load_snli_data(path)
     return load_lqcmc_data(path) if name == 'lqcmc' else load_sts_data(path) 
-
-
-def load_blog_data():
-    
-    from sklearn.model_selection import train_test_split
-
-    path = "/home/csdnai/File/repo/ask-classifier/src/test/auto_faq/data/blog/blog_title_for_simcse.txt"
-    file_handle = open(path, 'r')
-
-    data = []
-    for line in file_handle:
-        data.append(line.strip())
-    
-    data = data[:200000]
-    
-    # train_temp_set, test_set = train_test_split(data, test_size=0.1, random_state=42)
-
-    # train_set, dev_set = train_test_split(train_temp_set, test_size=0.2, random_state=42)
-    return data
-
