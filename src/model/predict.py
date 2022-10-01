@@ -1,8 +1,8 @@
 
 import torch
 import torch.nn.functional as F
-from simcse_unsup import SimcseUnsupModel
-from simcse_sup import SimcseSupModel
+from .simcse_unsup import SimcseUnsupModel
+from .simcse_sup import SimcseSupModel
 from transformers import BertTokenizer
 
 
