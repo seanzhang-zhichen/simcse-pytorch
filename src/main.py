@@ -2,7 +2,7 @@ import os
 import random
 import argparse
 from traceback import print_tb
-from data.data_process import load_data, load_blog_data
+from data.data_process import load_data
 from torch.utils.data import DataLoader, Dataset
 from data.dataset import TrainDataset, TestDataset
 from transformers import BertTokenizer
