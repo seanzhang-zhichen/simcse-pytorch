@@ -29,13 +29,13 @@ def predict(tokenizer, model, text_a, text_b):
 
 
 def get_sim(text_a, text_b, model_type):
-    bert_path = '../../model/bert-base-chinese'
+    bert_path = '../model/bert-base-chinese'
 
     if model_type == "unsup":
-        model_path = '../../model/simcse/simcse_unsup.pt'
+        model_path = '../model/simcse/simcse_unsup.pt'
         model = SimcseUnsupModel(pretrained_bert_path=bert_path, drop_out=0.3).to(DEVICE)
     elif model_type == "sup":
-        model_path = '../../model/simcse/simcse_sup.pt'
+        model_path = '../model/simcse/simcse_sup.pt'
         model = SimcseSupModel(pretrained_bert_path=bert_path, drop_out=0.3).to(DEVICE)
 
     model.load_state_dict(torch.load(model_path))
