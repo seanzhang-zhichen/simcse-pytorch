@@ -1,9 +1,9 @@
 
 import torch
-import numpy as np
 import torch.nn.functional as F
 from simcse_unsup import SimcseUnsupModel
-from transformers import BertConfig, BertModel, BertTokenizer
+from simcse_sup import SimcseSupModel
+from transformers import BertTokenizer
 
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu') 
@@ -25,16 +25,20 @@ def predict(tokenizer, model, text_a, text_b):
         target_pred = model(target_input_ids, target_attention_mask, target_token_type_ids)
         # concat
         sim = F.cosine_similarity(source_pred, target_pred, dim=-1).item()
-        print(sim)
+        return sim
 
 
-if __name__ == '__main__':
-    text_a = "用len函数出现报错：索引超出矩阵范围"
-    text_b = "c语言堆栈溢出"
+def get_sim(text_a, text_b, model_type):
+    bert_path = '../../model/bert-base-chinese'
 
-    save_path = '../../model/simcse/simcse_unsup.pt'
-    model_path = '../../model/bert-base-chinese'
-    model = SimcseUnsupModel(pretrained_bert_path=model_path, drop_out=0.3).to(DEVICE)
-    model.load_state_dict(torch.load(save_path))
-    tokenizer = BertTokenizer.from_pretrained(model_path)
-    predict(tokenizer, model, text_a, text_b)
+    if model_type == "unsup":
+        model_path = '../../model/simcse/simcse_unsup.pt'
+        model = SimcseUnsupModel(pretrained_bert_path=bert_path, drop_out=0.3).to(DEVICE)
+    elif model_type == "sup":
+        model_path = '../../model/simcse/simcse_sup.pt'
+        model = SimcseSupModel(pretrained_bert_path=bert_path, drop_out=0.3).to(DEVICE)
+
+    model.load_state_dict(torch.load(model_path))
+    tokenizer = BertTokenizer.from_pretrained(bert_path)
+    sim_score = predict(tokenizer, model, text_a, text_b)
+    return sim_score
